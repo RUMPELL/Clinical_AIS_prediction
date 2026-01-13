@@ -1,0 +1,21 @@
+# External validation (CBNU-style Excel)
+
+excel: /path/to/cbnu.xlsx
+code_col: de_list_외
+# If your Excel contains a text column, set it here. Otherwise use gt_only: true.
+# text_col: 판독문
+
+gt_only: false
+
+base_model: Qwen/Qwen3-8B
+model_dir: /path/to/training_output
+adapter_dir: /path/to/training_output/cls_lora_adapter
+code2idx: ./code2idx_3lvl.json
+
+device: cuda:0
+max_len: 1024
+threshold: 0.5
+wrap_chatml: true
+
+out_pred: outputs/external_cbnu_predictions.jsonl
+out_metrics: outputs/external_cbnu_metrics.json

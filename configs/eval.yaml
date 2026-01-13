@@ -1,0 +1,18 @@
+# Internal validation evaluation config
+
+data: ./ais_valid_preproc.jsonl
+code2idx: ./code2idx_3lvl.json
+base_model: Qwen/Qwen3-8B
+
+# point these to your training output
+model_dir: /path/to/training_output
+adapter_dir: /path/to/training_output/cls_lora_adapter
+
+device: cuda:0
+max_len: 1024
+threshold: 0.3
+topk_fallback: 2
+wrap_chatml: true
+
+out_metrics: outputs/metrics.json
+out_pred: outputs/predictions.jsonl

@@ -1,0 +1,31 @@
+# Training config (mirrors the author's original run)
+train_file: ./train_full_preproc.jsonl
+val_file: ./ais_valid_preproc.jsonl
+code2idx: ./code2idx_3lvl.json
+
+base_model: Qwen/Qwen3-8B
+max_len: 1024
+mlp_hidden: 512
+
+lora_r: 32
+lora_alpha: 128
+lora_dropout: 0.1
+lora_target_modules: q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj
+
+output_dir: qwen3_8b_ais_lora_onehot_4digit_mlphead_a128_epoch10
+num_epochs: 10
+batch_size: 6
+grad_accum: 6
+lr: 2e-4
+seed: 42
+
+lr_scheduler_type: cosine
+warmup_steps: 100
+weight_decay: 0.01
+
+logging_steps: 20
+eval_steps: 100
+save_steps: 100
+save_total_limit: 3
+threshold: 0.3
+bf16: true

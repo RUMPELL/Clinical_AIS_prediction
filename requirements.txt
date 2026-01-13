@@ -1,0 +1,11 @@
+pandas
+tqdm
+scikit-learn
+iterative-stratification
+scikit-multilearn
+pyyaml
+openpyxl
+torch
+transformers
+peft
+datasets
